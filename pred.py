@@ -66,15 +66,3 @@ class RNN(nn.Module):
         out = next_images
         next_images = []
         return out.to("cpu")
-
-if __name__ == '__main__':
-    numlayers = 4
-    b = torch.randn(32, 1, 1, 32, 64)
-    c = torch.randn(32, 1, 65, 32, 64)
-    shape1 = [32, 1, 65, 32, 64]
-    predrnn1 = RNN(shape1, numlayers, [65, 65, 65, 65], 6, True)
-    predict = predrnn1(c)
-    print(predict.shape)
-    error = nn.MSELoss()
-    loss = error(predict, b)
-    print(loss)

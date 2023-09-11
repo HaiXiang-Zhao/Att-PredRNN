@@ -1,6 +1,3 @@
-'''
-time:2020 5 7
-'''
 import torch
 import torch.nn as nn
 from TensorLayerNorm_pytorch import tensor_layer_norm
@@ -111,11 +108,3 @@ class CausalLSTMCell(nn.Module):
         cell = self.cell_conv(cell)
         h_new = o * torch.tanh(cell)
         return h_new, c_new, m_new
-
-# if __name__ == '__main__':
-#     a = torch.randn(2,16,250,350)
-#     lstm = CausalLSTMCell("name",16,32,[2,16,250,350],1.0,True)
-#     new_h,new_c,new_m = lstm(a,None,None,None)
-#     print(new_h.shape)
-#     print(new_c.shape)
-#     print(new_m.shape)
