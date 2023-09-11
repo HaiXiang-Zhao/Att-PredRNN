@@ -1,6 +1,8 @@
 import torch
 import torch.nn as nn
-from TensorLayerNorm_pytorch import tensor_layer_norm
+
+def tensor_layer_norm(num_features):
+	return nn.BatchNorm2d(num_features)
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu") 
 class CausalLSTMCell(nn.Module):
