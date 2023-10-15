@@ -64,7 +64,7 @@ if torch.cuda.is_available():
 error = nn.MSELoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)
 
-epochs = 1
+epochs = 100
 for epoch in range(epochs):
   
   for i in range(len(dg_train)):
